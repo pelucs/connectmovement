@@ -1,9 +1,10 @@
+import { Button } from "./ui/button";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
+
 import logoConnect from "../assets/logotipo-connect.png";
 import logoAdvec from "../assets/logo-advec.png";
 import logoAnoDeServir from "../assets/logo-ano-de-servir.png";
 import Image from "next/image";
-import { InstagramLogoIcon } from "@radix-ui/react-icons";
-import { Button } from "./ui/button";
 
 export function Footer() {
   return(

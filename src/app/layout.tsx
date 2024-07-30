@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const helvetica = localFont({
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${helvetica.variable} ${atomic.variable} font-sans text-sm`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );

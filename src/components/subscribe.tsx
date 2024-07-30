@@ -5,29 +5,43 @@ import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { Checkbox } from "./ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, Loader } from "lucide-react";
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { departments } from "@/utils/departments";
 import { dateSubscribe } from "@/constants/date-subscribe";
-
+import { ArrowRight, Loader } from "lucide-react";
+import { useEffect, useState } from "react";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
+import { 
+  Form, 
+  FormControl, 
+  FormDescription, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from "./ui/form";
+import { useCreateSubscribeMutation } from "@/graphql/generated";
+import { toast } from "./ui/use-toast";
 
 const formSchema = z.object({
   name: z.string({ message: "Campo obrigatório" }).min(4),
-  age: z.coerce.number({ message: "Campo obrigatório" }),
+  age: z.coerce.number({ message: "Campo obrigatório" }).min(18, { message: "Você deve ter no mínimo 18 anos de idade" }),
   phone: z.coerce.number({ message: "Campo obrigatório" }),
   email: z.string({ message: "Campo obrigatório" }).email(),
   advecMember: z.string({ message: "Campo obrigatório" }),
   isInTheGroup: z.string({ message: "Campo obrigatório" }),
-  department: z.string({ message: "Campo obrigatório" }),
+  department: z.array(z.string())
+  .refine((value) => value.length >= 1 && value.length <= 2, {
+    message: "Você deve selecionar pelo menos um departamento.",
+  }),
 });
 
 type FormTypes = z.infer<typeof formSchema>;
 
 export function Subscribe() {
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [createSubscribe, { loading }] = useCreateSubscribeMutation();
   const [isExpired, setIsExpired] = useState<boolean>(false);
 
   useEffect(() => {
@@ -44,7 +58,38 @@ export function Subscribe() {
   });
 
   const sendSubscribe = async (data: FormTypes) => {
-    console.log(data)
+    
+    const { 
+      name,
+      age,
+      email,
+      phone,
+      advecMember,
+      isInTheGroup,
+      department,
+    } = data;
+
+    createSubscribe({
+      variables: {
+        name,
+        age,
+        email,
+        phone,
+        advecMember,
+        isInTheGroup,
+        department: JSON.stringify(department)
+      }
+    })
+    .then(() => {
+      toast({
+        title: "Sua inscrição foi registrada!"
+      });
+
+      setTimeout(() =>  window.location.reload(), 3000)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   } 
 
   return(
@@ -210,65 +255,53 @@ export function Subscribe() {
         <FormField
           control={form.control}
           name="department"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
-              <FormLabel>Qual departamento você gostaria de ser voluntário?</FormLabel>
+              <div>
+                <FormLabel>Qual/Quais departamento(s) você gostaria de ser voluntário?</FormLabel>
 
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  className="flex flex-col"
-                >
+                <FormDescription>
+                  Você pode servir no mínimo um e no máximo dois departamentos.
+                </FormDescription>
+              </div>
 
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="Producao"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">Produção</FormLabel>
-                  </FormItem>
+              {departments.map(department => (
+                <FormField
+                  name="department"
+                  key={department.id}
+                  control={form.control}
+                  render={({ field }) => {
+                    const value = field.value || [];
 
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="UNA"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">UNA</FormLabel>
-                  </FormItem>
+                    return (
+                      <FormItem 
+                        key={department.id} 
+                        className="flex items-center gap-2"
+                      >
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value?.includes(department.id)}
+                            disabled={!value.includes(department.id) && value.length >= 2}
+                            onCheckedChange={(checked) => {
+                              return checked
+                                ? field.onChange([...value, department.id])
+                                : field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== department.id
+                                    )
+                                  )
+                            }}
+                          />
+                        </FormControl>
 
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="Creative"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">Creative</FormLabel>
-                  </FormItem>
-
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="Theater"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">Theater (Teatro)</FormLabel>
-                  </FormItem>
-
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="Dance"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">Dance</FormLabel>
-                  </FormItem>
-
-                  <FormItem className="flex items-center gap-2">
-                    <FormControl>
-                      <RadioGroupItem value="Welcome"/>
-                    </FormControl>
-                      
-                    <FormLabel className="relative -top-1">Welcome</FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
+                        <FormLabel className="relative -top-1 cursor-pointer">
+                          {department.label}
+                        </FormLabel>
+                      </FormItem>
+                    )
+                  }}
+                />
+              ))}
             </FormItem>
           )}
         />
@@ -282,14 +315,11 @@ export function Subscribe() {
             <Button
               size="lg"
               type="submit"
-              disabled={isLoading}
+              disabled={loading}
               variant="destructive"
-              className={cn("w-full font-bold gap-2", {
-                "opacity-100": !isLoading,
-                "opacity-50": isLoading
-              })}
+              className="w-full font-bold gap-2 disabled:opacity-50"
             >
-              {isLoading ? (
+              {loading ? (
                 <Loader className="size-4 animate-spin"/>
               ) : (
                 <>

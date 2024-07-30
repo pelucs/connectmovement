@@ -1,0 +1,12 @@
+query GetAllSubscribes{
+  subscribes(stage: DRAFT){
+    name
+    age
+    email
+    phone
+    advecMember
+    isInTheGroup
+    department
+    createdAt
+  }
+}

@@ -1,12 +1,15 @@
+"use client"
+
+import Image from "next/image";
+import kit from "../assets/kit.png";
+
+import { Dot } from "lucide-react";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/footer";
 import { Countdown } from "@/components/countdown";
 import { Subscribe } from "@/components/subscribe";
-
-import Image from "next/image";
-import kit from "../assets/kit.png";
-import { Dot } from "lucide-react";
+import { ApolloClientProvider } from "@/lib/apollo";
 
 export default function Home() {
   return (
@@ -101,7 +104,11 @@ export default function Home() {
           </div>
 
           <div className="w-full max-w-5xl grid grid-cols-2 gap-10 relative">
-            <Subscribe/>
+            
+            <ApolloClientProvider>
+              <Subscribe/>
+            </ApolloClientProvider>
+
             <Image 
               src={kit} 
               alt="Kit de voluntários" 
