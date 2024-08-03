@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import kit from "../assets/kit.png";
+import kit from "../assets/kit.jpg";
 
 import { Dot } from "lucide-react";
 import { Header } from "@/components/header";
@@ -127,7 +127,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-5 text-lg">
               <span className="leading-tight">
-                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-red-500">R$60.00</span>;
+                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-red-500">R$70.00</span>;
               </span>
 
               <span className="leading-tight">
