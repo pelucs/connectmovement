@@ -68,7 +68,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="py-10 flex items-center flex-col justify-center gap-10">
+        {/* <div className="py-10 flex items-center flex-col justify-center gap-10">
           <h1 className="text-4xl font-alt text-center">
             Convidados
           </h1>
@@ -105,7 +105,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="py-10 px-5 flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-2">
@@ -149,7 +149,7 @@ export default function Home() {
             <Image 
               src={kit} 
               alt="Kit de voluntários" 
-              className="w-full max-w-lg md:sticky md:top-5 rounded-2xl"
+              className="w-full max-w-lg md:sticky md:top-5 border rounded-2xl"
             />
           </div>
         </div>
