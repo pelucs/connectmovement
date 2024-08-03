@@ -7,23 +7,23 @@ import { Separator } from "./ui/separator";
 
 export function Header() {
   return(
-    <div className="w-full h-20 px-20 flex items-center justify-between border-b">
+    <div className="w-full h-14 md:h-20 px-5 md:px-20 flex items-center justify-between border-b">
       <div className="flex items-center gap-5">
         <Link href="/" className="text-muted-foreground">
           <Image 
             src={logotipo} 
             alt="Logo Connect Movement"
-            className="w-[130px]"
+            className="w-[100px] md:w-[130px]"
           />
         </Link>
 
-        <span>
+        <span className="hidden md:flex">
           ADVEC Campina Grande
         </span>
       </div>
 
       <div className="flex items-center gap-5">
-        <nav className="flex items-center gap-5">
+        <nav className="hidden md:flex items-center gap-5">
           <Link href="">
             Sobre nós
           </Link>
@@ -36,8 +36,9 @@ export function Header() {
         <Separator orientation="vertical" className="h-5"/>
 
         <Button 
-          variant={"destructive"} 
+          variant="destructive" 
           className="font-bold"
+          size="sm"
         >
           Ser Voluntário
         </Button>

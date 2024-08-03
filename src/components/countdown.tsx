@@ -42,9 +42,9 @@ export function Countdown() {
   }
 
   return(
-    <div className="h-16 w-full flex items-center justify-center bg-gradient-to-r from-red-500 to-black">
+    <div className="py-2 md:h-16 w-full flex items-center justify-center bg-gradient-to-r from-red-500 to-black">
       {!expired && (
-        <span className="text-white text-xl flex items-center gap-2">
+        <span className="text-white text-base md:text-xl flex flex-col md:flex-row items-center md:gap-2">
           Connect Conference 2024 <br className="block md:hidden"/> 
 
           <span className="text-3xl font-bold">

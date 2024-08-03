@@ -93,7 +93,7 @@ export function ListAllSubscribe() {
           <TableFooter className="bg-transparent">
             <TableRow>
               <TableCell>
-                Total: {data.subscribes.length}
+                Total: {filteredSubscribes.length}
               </TableCell>
             </TableRow>
           </TableFooter>

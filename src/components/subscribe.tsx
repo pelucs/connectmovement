@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { Checkbox } from "./ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { departments } from "@/utils/departments";
-import { dateSubscribe } from "@/constants/date-subscribe";
+import { finalDateSubscribe } from "@/constants/date-subscribe";
 import { ArrowRight, Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
@@ -23,6 +23,7 @@ import {
 } from "./ui/form";
 import { useCreateSubscribeMutation } from "@/graphql/generated";
 import { toast } from "./ui/use-toast";
+import { isPast } from "date-fns";
 
 const formSchema = z.object({
   name: z.string({ message: "Campo obrigatório" }).min(4),
@@ -42,16 +43,6 @@ type FormTypes = z.infer<typeof formSchema>;
 export function Subscribe() {
 
   const [createSubscribe, { loading }] = useCreateSubscribeMutation();
-  const [isExpired, setIsExpired] = useState<boolean>(false);
-
-  useEffect(() => {
-    const now = new Date().getTime();
-    const dateExpired = new Date(dateSubscribe).getTime();
-
-    if(dateExpired < now) {
-      setIsExpired(true);
-    }
-  }, []);
 
   const form = useForm<FormTypes>({
     resolver: zodResolver(formSchema)
@@ -96,9 +87,9 @@ export function Subscribe() {
     <Form {...form}>
       <form 
         onSubmit={form.handleSubmit(sendSubscribe)} 
-        className="w-full max-w-2xl py-6 px-7 space-y-4 rounded-xl shadow border bg-zinc-50"
+        className="w-full max-w-2xl py-4 px-5 md:py-6 md:px-7 space-y-4 rounded-xl shadow border bg-zinc-50"
       >
-        <h1 className="text-xl font-bold">Preencha todos os campos corretamente</h1>
+        <h1 className="text-xl font-bold leading-none">Preencha todos os campos corretamente</h1>
 
         <FormField
           control={form.control}
@@ -307,7 +298,7 @@ export function Subscribe() {
         />
 
         <div>
-          {isExpired ? (
+          {isPast(finalDateSubscribe) ? (
             <div className="w-full h-10 flex items-center justify-center text-white bg-red-500 rounded">
               Inscrições encerradas!
             </div>
