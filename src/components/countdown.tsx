@@ -9,25 +9,29 @@ export function Countdown() {
 
   useEffect(() => {
 
-    let countDownDate = new Date('Sep 20, 2024 23:59:99').getTime(); //DATA DA CONTAGEM REGRESSIVA
+    let countDownDate = new Date('Sep 20, 2024 23:59:59').getTime(); // Corrigido para segundos válidos
 
-    setInterval(() => {
+    const interval = setInterval(() => {
 
       let now = new Date().getTime(), //DATA ATUAL
           distance = countDownDate - now; //DISTÂNCIA ENTRE AS DATAS
   
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24)),
+      if (distance < 0) {
+        setExpired(true);
+        clearInterval(interval); // Parar o intervalo quando expirar
+        return;
+      }
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24)),
           hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds = Math.floor((distance % (1000 * 60)) / 1000)
+          seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       formatDate(days, hours, minutes, seconds);
 
-      if(distance < 0){
-        setExpired(true);
-      }
-
     }, 1000);
+
+    return () => clearInterval(interval); // Limpar o intervalo ao desmontar o componente
 
   }, []);
 

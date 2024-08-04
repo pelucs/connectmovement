@@ -58,12 +58,15 @@ export default function Home() {
               </a>
             </Button>
 
-            <Button 
-              size={"lg"}
+            <Button
+              asChild 
+              size="lg"
               variant={"destructive"} 
               className="font-bold"
             >
-              Ser Voluntário
+              <a href="#inscricao">
+                Ser Voluntário
+              </a>
             </Button>
           </div>
         </div>
@@ -107,7 +110,7 @@ export default function Home() {
           </div>
         </div> */}
 
-        <div className="py-10 px-5 flex flex-col items-center gap-10">
+        <div id="inscricao" className="py-10 px-5 flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-2">
             <h1 className="text-4xl font-alt text-center">
               Inscrições
@@ -134,6 +137,10 @@ export default function Home() {
                 • Os métodos de pagamento são; Pix, Crédito e Débito;
               </span>
 
+              {/* <span className="leading-tight">
+                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">(83) 9606-4852</span>;
+              </span> */}
+
               <span className="leading-tight">
                 • Envie o comprovante de pagamento para o número <span className="underline text-red-500">(83) 9606-4852</span> (Guilherme);
               </span>
@@ -141,7 +148,6 @@ export default function Home() {
           </div>
 
           <div className="w-full max-w-5xl flex flex-col-reverse md:grid md:grid-cols-2 gap-10 relative">
-            
             <ApolloClientProvider>
               <Subscribe/>
             </ApolloClientProvider>

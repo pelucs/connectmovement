@@ -36,11 +36,14 @@ export function Header() {
         <Separator orientation="vertical" className="h-5"/>
 
         <Button 
+          asChild
+          size="sm"
           variant="destructive" 
           className="font-bold"
-          size="sm"
         >
-          Ser Voluntário
+          <a href="#inscricao">
+            Ser Voluntário
+          </a>
         </Button>
       </div>
     </div>
