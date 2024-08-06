@@ -28,6 +28,10 @@ export const departments = [
     label: "Welcome",
   },
   {
+    id: "Start",
+    label: "Start",
+  },
+  {
     id: "Store",
     label: "Store",
   },
