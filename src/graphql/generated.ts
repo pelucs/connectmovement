@@ -3942,7 +3942,7 @@ export type CreateSubscribeMutationResult = Apollo.MutationResult<CreateSubscrib
 export type CreateSubscribeMutationOptions = Apollo.BaseMutationOptions<CreateSubscribeMutation, CreateSubscribeMutationVariables>;
 export const GetAllSubscribesDocument = gql`
     query GetAllSubscribes {
-  subscribes(stage: DRAFT) {
+  subscribes(stage: DRAFT, last: 150) {
     name
     age
     email
