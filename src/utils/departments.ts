@@ -23,4 +23,8 @@ export const departments = [
     id: "Welcome",
     label: "Welcome",
   },
+  {
+    id: "Store",
+    label: "Store",
+  },
 ]
