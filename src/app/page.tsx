@@ -71,7 +71,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <div className="py-10 flex items-center flex-col justify-center gap-10">
+        <div className="py-10 flex items-center flex-col justify-center gap-10">
           <h1 className="text-4xl font-alt text-center">
             Convidados
           </h1>
@@ -108,7 +108,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </div> */}
+        </div>
 
         <div id="inscricao" className="py-10 px-5 flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-2">
@@ -137,9 +137,9 @@ export default function Home() {
                 • Os métodos de pagamento são; Pix, Crédito e Débito;
               </span>
 
-              {/* <span className="leading-tight">
-                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">(83) 9606-4852</span>;
-              </span> */}
+              <span className="leading-tight">
+                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">diegosales45@gmail.com</span> (Diego Sales - Nubank);
+              </span>
 
               <span className="leading-tight">
                 • Envie o comprovante de pagamento para o número <span className="underline text-red-500">(83) 9606-4852</span> (Guilherme);
