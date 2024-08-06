@@ -16,6 +16,17 @@ import { Table,
 } from "@/components/ui/table";
 import { valueFormated } from "@/helpers/regular-expressions";
 
+interface Subscribes {
+  name: string;
+  age: number;
+  email: string;
+  phone: number;
+  advecMember: string;
+  isInTheGroup: string;
+  department: string;
+  createdAt: string;
+}
+
 export function ListAllSubscribe() {
 
   const [search, setSearch] = useState<string>("");
@@ -28,15 +39,23 @@ export function ListAllSubscribe() {
     );
   }
 
+  const sortedSubscribes = [...data.subscribes].sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
   const filteredSubscribes = search.length > 0
-  ? data.subscribes.filter(subs => (
-    valueFormated(subs.name).includes(valueFormated(search))
-    || valueFormated(subs.email).includes(valueFormated(search))
-    || valueFormated(subs.phone.toString()).includes(valueFormated(search))
-    || valueFormated(subs.age.toString()).includes(valueFormated(search))
-    || valueFormated(subs.department).includes(valueFormated(search))
-  ))
-  : data.subscribes;
+  ? sortedSubscribes.filter(subs => {
+    const formattedSearch = valueFormated(search);
+
+    return (
+      valueFormated(subs.name).includes(formattedSearch) ||
+      valueFormated(subs.email).includes(formattedSearch) ||
+      valueFormated(subs.phone.toString()).includes(formattedSearch) ||
+      valueFormated(subs.age.toString()).includes(formattedSearch) ||
+      JSON.parse(subs.department).some((dep: any) => valueFormated(dep).includes(formattedSearch))
+    );
+  })
+  : sortedSubscribes;
 
   return(
     <div className="space-y-5">
