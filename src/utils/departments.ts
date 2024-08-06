@@ -12,6 +12,10 @@ export const departments = [
     label: "Creative (Apenas para voluntários já do creative)",
   },
   {
+    id: "Music",
+    label: "Music (Apenas para voluntários já do music)",
+  },
+  {
     id: "Theater",
     label: "Theater (Teatro)",
   },
