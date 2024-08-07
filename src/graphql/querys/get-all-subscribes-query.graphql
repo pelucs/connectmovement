@@ -5,6 +5,7 @@ query GetAllSubscribes{
     email
     phone
     advecMember
+    tshirtSize
     isInTheGroup
     department
     createdAt

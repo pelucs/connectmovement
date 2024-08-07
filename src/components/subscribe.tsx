@@ -1,7 +1,6 @@
 "use client"
 
 import { z } from "zod";
-import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
@@ -10,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { departments } from "@/utils/departments";
 import { finalDateSubscribe } from "@/constants/date-subscribe";
 import { ArrowRight, Loader } from "lucide-react";
-import { useEffect, useState } from "react";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { 
   Form, 
@@ -21,9 +19,9 @@ import {
   FormLabel, 
   FormMessage 
 } from "./ui/form";
-import { useCreateSubscribeMutation } from "@/graphql/generated";
 import { toast } from "./ui/use-toast";
 import { isPast } from "date-fns";
+import { useCreateSubscribeMutation } from "@/graphql/generated";
 
 const formSchema = z.object({
   name: z.string({ message: "Campo obrigatório" }).min(4),
@@ -32,6 +30,7 @@ const formSchema = z.object({
   email: z.string({ message: "Campo obrigatório" }).email(),
   advecMember: z.string({ message: "Campo obrigatório" }),
   isInTheGroup: z.string({ message: "Campo obrigatório" }),
+  tshirtSize: z.string({ message: "Campo obrigatório" }),
   department: z.array(z.string())
   .refine((value) => value.length >= 1 && value.length <= 2, {
     message: "Você deve selecionar pelo menos um departamento.",
@@ -56,6 +55,7 @@ export function Subscribe() {
       email,
       phone,
       advecMember,
+      tshirtSize,
       isInTheGroup,
       department,
     } = data;
@@ -67,6 +67,7 @@ export function Subscribe() {
         email,
         phone,
         advecMember,
+        tshirtSize,
         isInTheGroup,
         department: JSON.stringify(department)
       }
@@ -76,7 +77,7 @@ export function Subscribe() {
         title: "Sua inscrição foi registrada!"
       });
 
-      setTimeout(() =>  window.location.reload(), 3000)
+      setTimeout(() =>  window.location.reload(), 1700)
     })
     .catch(err => {
       console.log(err)
@@ -239,6 +240,27 @@ export function Subscribe() {
                   </FormItem>
                 </RadioGroup>
               </FormControl>
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="tshirtSize"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Qual será o tamanho da sua camiseta?</FormLabel>
+
+              <FormControl>
+                <Input 
+                  {...field}
+                  value={field.value ?? ''} 
+                  className="" 
+                  placeholder="Insira seu tamanho"
+                />
+              </FormControl>
+
+              <FormMessage/>
             </FormItem>
           )}
         />

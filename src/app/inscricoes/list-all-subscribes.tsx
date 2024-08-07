@@ -80,6 +80,7 @@ export function ListAllSubscribe() {
               <TableHead className="whitespace-nowrap">Email</TableHead>
               <TableHead className="whitespace-nowrap">Membro da ADVEC</TableHead>
               <TableHead className="whitespace-nowrap">Está no central?</TableHead>
+              <TableHead className="whitespace-nowrap">Tam. camiseta</TableHead>
               <TableHead className="whitespace-nowrap">Departamentos</TableHead>
             </TableRow>
           </TableHeader>
@@ -95,6 +96,7 @@ export function ListAllSubscribe() {
                 <TableCell className="whitespace-nowrap">{sub.email}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.advecMember}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.isInTheGroup}</TableCell>
+                <TableCell className="whitespace-nowrap">{sub.tshirtSize}</TableCell>
                 <TableCell className="whitespace-nowrap space-x-2">
                   {ParseDepartment(sub.department).map(department => (
                     <span 

@@ -2723,6 +2723,7 @@ export type Subscribe = Entity & Node & {
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
+  tshirtSize: Scalars['String']['output'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
@@ -2799,6 +2800,7 @@ export type SubscribeCreateInput = {
   isInTheGroup: Scalars['String']['input'];
   name: Scalars['String']['input'];
   phone: Scalars['Int']['input'];
+  tshirtSize: Scalars['String']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -3017,6 +3019,25 @@ export type SubscribeManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  tshirtSize?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tshirtSize_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tshirtSize_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tshirtSize_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tshirtSize_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tshirtSize_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tshirtSize_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tshirtSize_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tshirtSize_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tshirtSize_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3056,6 +3077,8 @@ export enum SubscribeOrderByInput {
   PhoneDesc = 'phone_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
+  TshirtSizeAsc = 'tshirtSize_ASC',
+  TshirtSizeDesc = 'tshirtSize_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC'
 }
@@ -3068,6 +3091,7 @@ export type SubscribeUpdateInput = {
   isInTheGroup?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['Int']['input']>;
+  tshirtSize?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SubscribeUpdateManyInlineInput = {
@@ -3095,6 +3119,7 @@ export type SubscribeUpdateManyInput = {
   isInTheGroup?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['Int']['input']>;
+  tshirtSize?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SubscribeUpdateManyWithNestedWhereInput = {
@@ -3338,6 +3363,25 @@ export type SubscribeWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  tshirtSize?: InputMaybe<Scalars['String']['input']>;
+  /** All values containing the given string. */
+  tshirtSize_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values ending with the given string. */
+  tshirtSize_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are contained in given list. */
+  tshirtSize_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  tshirtSize_not?: InputMaybe<Scalars['String']['input']>;
+  /** All values not containing the given string. */
+  tshirtSize_not_contains?: InputMaybe<Scalars['String']['input']>;
+  /** All values not ending with the given string */
+  tshirtSize_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values that are not contained in given list. */
+  tshirtSize_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** All values not starting with the given string. */
+  tshirtSize_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  /** All values starting with the given string. */
+  tshirtSize_starts_with?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -3885,6 +3929,7 @@ export type CreateSubscribeMutationVariables = Exact<{
   age: Scalars['Int']['input'];
   phone: Scalars['Int']['input'];
   email: Scalars['String']['input'];
+  tshirtSize: Scalars['String']['input'];
   advecMember: Scalars['String']['input'];
   isInTheGroup: Scalars['String']['input'];
   department: Scalars['String']['input'];
@@ -3896,13 +3941,13 @@ export type CreateSubscribeMutation = { __typename?: 'Mutation', createSubscribe
 export type GetAllSubscribesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', name: string, age: number, email: string, phone: number, advecMember: string, isInTheGroup: string, department: string, createdAt: any }> };
+export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }> };
 
 
 export const CreateSubscribeDocument = gql`
-    mutation CreateSubscribe($name: String!, $age: Int!, $phone: Int!, $email: String!, $advecMember: String!, $isInTheGroup: String!, $department: String!) {
+    mutation CreateSubscribe($name: String!, $age: Int!, $phone: Int!, $email: String!, $tshirtSize: String!, $advecMember: String!, $isInTheGroup: String!, $department: String!) {
   createSubscribe(
-    data: {name: $name, age: $age, phone: $phone, email: $email, advecMember: $advecMember, isInTheGroup: $isInTheGroup, department: $department}
+    data: {name: $name, age: $age, phone: $phone, email: $email, tshirtSize: $tshirtSize, advecMember: $advecMember, isInTheGroup: $isInTheGroup, department: $department}
   ) {
     id
   }
@@ -3927,6 +3972,7 @@ export type CreateSubscribeMutationFn = Apollo.MutationFunction<CreateSubscribeM
  *      age: // value for 'age'
  *      phone: // value for 'phone'
  *      email: // value for 'email'
+ *      tshirtSize: // value for 'tshirtSize'
  *      advecMember: // value for 'advecMember'
  *      isInTheGroup: // value for 'isInTheGroup'
  *      department: // value for 'department'
@@ -3948,6 +3994,7 @@ export const GetAllSubscribesDocument = gql`
     email
     phone
     advecMember
+    tshirtSize
     isInTheGroup
     department
     createdAt
