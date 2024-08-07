@@ -3938,10 +3938,26 @@ export type CreateSubscribeMutationVariables = Exact<{
 
 export type CreateSubscribeMutation = { __typename?: 'Mutation', createSubscribe?: { __typename?: 'Subscribe', id: string } | null };
 
+export type DeleteSubscribeByIdMutationVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']['input']>;
+}>;
+
+
+export type DeleteSubscribeByIdMutation = { __typename?: 'Mutation', deleteSubscribe?: { __typename?: 'Subscribe', id: string } | null };
+
+export type UpdateSubscribeByIdMutationVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']['input']>;
+  tshirtSize: Scalars['String']['input'];
+  department: Scalars['String']['input'];
+}>;
+
+
+export type UpdateSubscribeByIdMutation = { __typename?: 'Mutation', updateSubscribe?: { __typename?: 'Subscribe', id: string } | null };
+
 export type GetAllSubscribesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }> };
+export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', id: string, name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }> };
 
 
 export const CreateSubscribeDocument = gql`
@@ -3986,9 +4002,81 @@ export function useCreateSubscribeMutation(baseOptions?: Apollo.MutationHookOpti
 export type CreateSubscribeMutationHookResult = ReturnType<typeof useCreateSubscribeMutation>;
 export type CreateSubscribeMutationResult = Apollo.MutationResult<CreateSubscribeMutation>;
 export type CreateSubscribeMutationOptions = Apollo.BaseMutationOptions<CreateSubscribeMutation, CreateSubscribeMutationVariables>;
+export const DeleteSubscribeByIdDocument = gql`
+    mutation DeleteSubscribeById($id: ID) {
+  deleteSubscribe(where: {id: $id}) {
+    id
+  }
+}
+    `;
+export type DeleteSubscribeByIdMutationFn = Apollo.MutationFunction<DeleteSubscribeByIdMutation, DeleteSubscribeByIdMutationVariables>;
+
+/**
+ * __useDeleteSubscribeByIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteSubscribeByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteSubscribeByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteSubscribeByIdMutation, { data, loading, error }] = useDeleteSubscribeByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteSubscribeByIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteSubscribeByIdMutation, DeleteSubscribeByIdMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteSubscribeByIdMutation, DeleteSubscribeByIdMutationVariables>(DeleteSubscribeByIdDocument, options);
+      }
+export type DeleteSubscribeByIdMutationHookResult = ReturnType<typeof useDeleteSubscribeByIdMutation>;
+export type DeleteSubscribeByIdMutationResult = Apollo.MutationResult<DeleteSubscribeByIdMutation>;
+export type DeleteSubscribeByIdMutationOptions = Apollo.BaseMutationOptions<DeleteSubscribeByIdMutation, DeleteSubscribeByIdMutationVariables>;
+export const UpdateSubscribeByIdDocument = gql`
+    mutation UpdateSubscribeById($id: ID, $tshirtSize: String!, $department: String!) {
+  updateSubscribe(
+    where: {id: $id}
+    data: {tshirtSize: $tshirtSize, department: $department}
+  ) {
+    id
+  }
+}
+    `;
+export type UpdateSubscribeByIdMutationFn = Apollo.MutationFunction<UpdateSubscribeByIdMutation, UpdateSubscribeByIdMutationVariables>;
+
+/**
+ * __useUpdateSubscribeByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateSubscribeByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSubscribeByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSubscribeByIdMutation, { data, loading, error }] = useUpdateSubscribeByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      tshirtSize: // value for 'tshirtSize'
+ *      department: // value for 'department'
+ *   },
+ * });
+ */
+export function useUpdateSubscribeByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateSubscribeByIdMutation, UpdateSubscribeByIdMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateSubscribeByIdMutation, UpdateSubscribeByIdMutationVariables>(UpdateSubscribeByIdDocument, options);
+      }
+export type UpdateSubscribeByIdMutationHookResult = ReturnType<typeof useUpdateSubscribeByIdMutation>;
+export type UpdateSubscribeByIdMutationResult = Apollo.MutationResult<UpdateSubscribeByIdMutation>;
+export type UpdateSubscribeByIdMutationOptions = Apollo.BaseMutationOptions<UpdateSubscribeByIdMutation, UpdateSubscribeByIdMutationVariables>;
 export const GetAllSubscribesDocument = gql`
     query GetAllSubscribes {
   subscribes(stage: DRAFT, last: 150) {
+    id
     name
     age
     email

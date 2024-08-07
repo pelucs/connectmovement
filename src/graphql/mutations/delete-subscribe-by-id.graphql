@@ -1,0 +1,5 @@
+mutation DeleteSubscribeById($id: ID) {
+  deleteSubscribe(where: { id: $id }) {
+    id
+  }
+}

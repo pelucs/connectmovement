@@ -15,6 +15,8 @@ import { Table,
   TableRow 
 } from "@/components/ui/table";
 import { valueFormated } from "@/helpers/regular-expressions";
+import { EditSubscribe } from "./edit-subscribe";
+import { DeleteSubscribe } from "./delete-subscribe";
 
 interface Subscribes {
   name: string;
@@ -73,6 +75,7 @@ export function ListAllSubscribe() {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead className="w-16"></TableHead>
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
               <TableHead className="whitespace-nowrap">Idade</TableHead>
@@ -86,10 +89,24 @@ export function ListAllSubscribe() {
           </TableHeader>
           <TableBody>
             {filteredSubscribes.map(sub => (
-              <TableRow key={sub.email}>
+              <TableRow key={sub.id}>
+                <TableCell className="flex items-center gap-1">
+                  <EditSubscribe
+                    id={sub.id}
+                    name={sub.name} 
+                    tshirtSize={sub.tshirtSize} 
+                    department={sub.department}
+                  />
+                  <DeleteSubscribe
+                    id={sub.id}
+                    name={sub.name} 
+                  />
+                </TableCell>
+
                 <TableCell className="whitespace-nowrap">
                   {format(new Date(sub.createdAt), "dd' de 'MMM'", { locale: ptBR })}
                 </TableCell>
+
                 <TableCell className="whitespace-nowrap">{sub.name}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.age}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.phone}</TableCell>

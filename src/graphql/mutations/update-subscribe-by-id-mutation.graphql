@@ -1,0 +1,5 @@
+mutation UpdateSubscribeById($id: ID, $tshirtSize: String!, $department: String!) {
+  updateSubscribe(where: { id: $id }, data: { tshirtSize: $tshirtSize, department: $department }) {
+    id
+  }
+}
