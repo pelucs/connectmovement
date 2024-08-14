@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import kit from "../assets/kit.png";
+import kit from "../assets/kit.jpg";
 
 import { Dot } from "lucide-react";
 import { Header } from "@/components/header";
