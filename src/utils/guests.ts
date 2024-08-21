@@ -1,4 +1,4 @@
-import abdiel from "@/assets/abdiel.png";
+import lucas from "@/assets/lucas.png";
 import carlos from "@/assets/carlos.png";
 import clezio from "@/assets/clezio.png";
 import thiago from "@/assets/thiago.png";
@@ -6,10 +6,10 @@ import { StaticImageData } from "next/image";
 
 export const guests: { name: string, other: string, instagram: string, image: StaticImageData }[] = [
   {
-    name: "Abdiel Arsenio",
-    other: "Cantor",
-    instagram: "abdielarsenio",
-    image: abdiel
+    name: "Lucas França",
+    other: "Pastor",
+    instagram: "lucasfrance01",
+    image: lucas
   },
   {
     name: "Carlos Júnior",
