@@ -7,7 +7,7 @@ import { StaticImageData } from "next/image";
 export const guests: { name: string, other: string, instagram: string, image: StaticImageData }[] = [
   {
     name: "Lucas França",
-    other: "Pastor",
+    other: "Pastor - Líder do connect nacional",
     instagram: "lucasfrance01",
     image: lucas
   },
