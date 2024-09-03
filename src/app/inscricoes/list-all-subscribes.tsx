@@ -75,7 +75,7 @@ export function ListAllSubscribe() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-16"></TableHead>
+              { /* <TableHead className="w-16"></TableHead> */ }
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
               <TableHead className="whitespace-nowrap">Idade</TableHead>
@@ -90,7 +90,7 @@ export function ListAllSubscribe() {
           <TableBody>
             {filteredSubscribes.map(sub => (
               <TableRow key={sub.id}>
-                <TableCell className="flex items-center gap-1">
+                { /* <TableCell className="flex items-center gap-1">
                   <EditSubscribe
                     id={sub.id}
                     name={sub.name} 
@@ -100,8 +100,8 @@ export function ListAllSubscribe() {
                   <DeleteSubscribe
                     id={sub.id}
                     name={sub.name} 
-                  />
-                </TableCell>
+                  /> 
+                </TableCell>*/ }
 
                 <TableCell className="whitespace-nowrap">
                   {format(new Date(sub.createdAt), "dd' de 'MMM'", { locale: ptBR })}
