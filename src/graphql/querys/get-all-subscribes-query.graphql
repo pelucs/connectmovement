@@ -1,5 +1,17 @@
 query GetAllSubscribes{
-  subscribes(last: 200, stage: DRAFT){
+  subscribes(first: 200, stage: DRAFT){
+    id
+    name
+    age
+    email
+    phone
+    advecMember
+    tshirtSize
+    isInTheGroup
+    department
+    createdAt
+  },
+  secondBatch: subscribes(skip: 100, first: 100, stage: DRAFT) {
     id
     name
     age

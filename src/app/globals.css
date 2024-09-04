@@ -66,4 +66,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  *::-webkit-scrollbar {
+    @apply w-[2px] h-3;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply w-[2px] h-3 bg-zinc-300;
+  }
 }

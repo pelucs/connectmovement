@@ -3957,7 +3957,7 @@ export type UpdateSubscribeByIdMutation = { __typename?: 'Mutation', updateSubsc
 export type GetAllSubscribesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', id: string, name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }> };
+export type GetAllSubscribesQuery = { __typename?: 'Query', subscribes: Array<{ __typename?: 'Subscribe', id: string, name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }>, secondBatch: Array<{ __typename?: 'Subscribe', id: string, name: string, age: number, email: string, phone: number, advecMember: string, tshirtSize: string, isInTheGroup: string, department: string, createdAt: any }> };
 
 
 export const CreateSubscribeDocument = gql`
@@ -4075,7 +4075,19 @@ export type UpdateSubscribeByIdMutationResult = Apollo.MutationResult<UpdateSubs
 export type UpdateSubscribeByIdMutationOptions = Apollo.BaseMutationOptions<UpdateSubscribeByIdMutation, UpdateSubscribeByIdMutationVariables>;
 export const GetAllSubscribesDocument = gql`
     query GetAllSubscribes {
-  subscribes(stage: DRAFT, last: 150) {
+  subscribes(first: 200, stage: DRAFT) {
+    id
+    name
+    age
+    email
+    phone
+    advecMember
+    tshirtSize
+    isInTheGroup
+    department
+    createdAt
+  }
+  secondBatch: subscribes(skip: 100, first: 100, stage: DRAFT) {
     id
     name
     age
