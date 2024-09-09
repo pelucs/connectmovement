@@ -41,7 +41,7 @@ const formSchema = z.object({
 
 type FormTypes = z.infer<typeof formSchema>;
 
-export function Subscribe() {
+export function SubscribeForAdmins() {
 
   const isAuthenticated = Cookies.get("user_acess");
 
@@ -323,30 +323,22 @@ export function Subscribe() {
           )}
         />
 
-        <div>
-          {isPast(finalDateSubscribe) && !isAuthenticated ? (
-            <div className="w-full h-10 flex items-center justify-center text-white bg-red-500 rounded">
-              Inscrições encerradas!
-            </div>
+        <Button
+          size="lg"
+          type="submit"
+          disabled={loading}
+          variant="destructive"
+          className="w-full font-bold gap-2 disabled:opacity-50"
+        >
+          {loading ? (
+            <Loader className="size-4 animate-spin" />
           ) : (
-            <Button
-              size="lg"
-              type="submit"
-              disabled={loading}
-              variant="destructive"
-              className="w-full font-bold gap-2 disabled:opacity-50"
-            >
-              {loading ? (
-                <Loader className="size-4 animate-spin" />
-              ) : (
-                <>
-                  Enviar Inscrição
-                  <ArrowRight className="size-4" />
-                </>
-              )}
-            </Button>
+            <>
+              Enviar Inscrição
+              <ArrowRight className="size-4" />
+            </>
           )}
-        </div>
+        </Button>
       </form>
     </Form>
   );

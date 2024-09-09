@@ -3,8 +3,12 @@
 import { ptBR } from "date-fns/locale";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
-import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { valueFormated } from "@/helpers/regular-expressions";
+import { EditSubscribe } from "./edit-subscribe";
+import { DeleteSubscribe } from "./delete-subscribe";
 import { ParseDepartment } from "@/helpers/parse-departments";
+import { useState, useEffect } from "react";
 import { useGetAllSubscribesQuery } from "@/graphql/generated";
 import { 
   Table, 
@@ -15,10 +19,10 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
-import { valueFormated } from "@/helpers/regular-expressions";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function ListAllSubscribe() {
+
   const [search, setSearch] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [allSubscribes, setAllSubscribes] = useState<any[]>([]);
@@ -68,20 +72,29 @@ export function ListAllSubscribe() {
 
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
         <h1 className="text-2xl font-bold">Inscrições CC 2024</h1>
 
-        <Input
-          placeholder="Pesquise aqui"
-          className="w-full max-w-80"
-          onChange={e => setSearch(e.target.value)}
-        />
+        <div className="flex items-center gap-2">
+          <Input
+            placeholder="Pesquise aqui"
+            className="w-full md:max-w-80"
+            onChange={e => setSearch(e.target.value)}
+          />
+
+          <Button asChild className="text-xs">
+            <Link href="/inscricoes/criar">
+              Criar inscrição
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <div className="py-1 px-2 rounded-md border">
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead className="whitespace-nowrap"></TableHead>
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
               <TableHead className="whitespace-nowrap">Tam. camiseta</TableHead>
@@ -91,6 +104,20 @@ export function ListAllSubscribe() {
           <TableBody>
             {paginatedSubscribes.map(sub => (
               <TableRow key={sub.id}>
+                <TableCell className="flex items-center gap-2">
+                  <EditSubscribe 
+                    id={sub.id}
+                    name={sub.name}
+                    department={sub.department}
+                    tshirtSize={sub.tshirtSize}
+                  />
+
+                  <DeleteSubscribe 
+                    id={sub.id}
+                    name={sub.name}
+                  />
+                </TableCell>
+
                 <TableCell className="whitespace-nowrap">
                   {format(new Date(sub.createdAt), "dd' de 'MMM'", { locale: ptBR })}
                 </TableCell>
