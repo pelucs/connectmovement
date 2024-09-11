@@ -15,8 +15,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(authURL);
   }
 
-  // Verifica se a senha no cookie é "elevem"
-  if (userAccess !== "elevem") {
+  // Verifica se a senha no cookie é "elevem" ou "connect"
+  if (!["elevem", "connect"].includes(userAccess)) {
     // Remove o cookie e redireciona para o login
     const response = NextResponse.redirect(authURL);
     response.cookies.delete("user_acess");
@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Se o usuário está autenticado e a senha é correta, redireciona da página de login para "/inscricoes"
-  if (requestURL === "/login" && userAccess === "elevem") {
+  if (requestURL === "/login" && ["elevem", "connect"].includes(userAccess)) {
     return NextResponse.redirect(privateURL);
   }
 

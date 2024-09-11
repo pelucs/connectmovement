@@ -1,5 +1,7 @@
 "use client";
 
+import Cookies from "js-cookie";
+
 import { ptBR } from "date-fns/locale";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
@@ -22,6 +24,8 @@ import {
 import Link from "next/link";
 
 export function ListAllSubscribe() {
+
+  const userAcess = Cookies.get("user_acess") 
 
   const [search, setSearch] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -70,6 +74,8 @@ export function ListAllSubscribe() {
     currentPage * itemsPerPage
   );
 
+  console.log(JSON.stringify(data.subscribes))
+
   return (
     <div className="space-y-5">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
@@ -82,11 +88,13 @@ export function ListAllSubscribe() {
             onChange={e => setSearch(e.target.value)}
           />
 
-          <Button asChild className="text-xs">
-            <Link href="/inscricoes/criar">
-              Criar inscrição
-            </Link>
-          </Button>
+          {userAcess === "elevem" && (
+            <Button asChild className="text-xs">
+              <Link href="/inscricoes/criar">
+                Criar inscrição
+              </Link>
+            </Button>
+          )}
         </div>
       </div>
 
@@ -94,7 +102,9 @@ export function ListAllSubscribe() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="whitespace-nowrap"></TableHead>
+              {userAcess === "elevem" && (
+                <TableHead className="whitespace-nowrap"></TableHead>
+              )}
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
               <TableHead className="whitespace-nowrap">Tam. camiseta</TableHead>
@@ -104,19 +114,21 @@ export function ListAllSubscribe() {
           <TableBody>
             {paginatedSubscribes.map(sub => (
               <TableRow key={sub.id}>
-                <TableCell className="flex items-center gap-2">
-                  <EditSubscribe 
-                    id={sub.id}
-                    name={sub.name}
-                    department={sub.department}
-                    tshirtSize={sub.tshirtSize}
-                  />
+                {userAcess === "elevem" && (
+                  <TableCell className="flex items-center gap-2">
+                    <EditSubscribe 
+                      id={sub.id}
+                      name={sub.name}
+                      department={sub.department}
+                      tshirtSize={sub.tshirtSize}
+                    />
 
-                  <DeleteSubscribe 
-                    id={sub.id}
-                    name={sub.name}
-                  />
-                </TableCell>
+                    <DeleteSubscribe 
+                      id={sub.id}
+                      name={sub.name}
+                    />
+                  </TableCell>
+                )}
 
                 <TableCell className="whitespace-nowrap">
                   {format(new Date(sub.createdAt), "dd' de 'MMM'", { locale: ptBR })}

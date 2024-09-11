@@ -29,9 +29,9 @@ export default () => {
           variant="destructive"
           className="w-full font-bold gap-2 disabled:opacity-50"
           onClick={() => {
-            if (password === "elevem") {
+            if (password === "elevem" || password === "connect") {
               // Cria o cookie com o nome 'user_acess' e valor 'elevem'
-              document.cookie = "user_acess=elevem; path=/; max-age=7776000"; // `max-age=86400` define o cookie para expirar em 1 dia (86400 segundos)
+              document.cookie = `user_acess=${password}; path=/; max-age=7776000`; // `max-age=86400` define o cookie para expirar em 1 dia (86400 segundos)
               
               window.location.reload();
             } else {
