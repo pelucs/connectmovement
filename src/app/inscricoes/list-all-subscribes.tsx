@@ -107,6 +107,7 @@ export function ListAllSubscribe() {
               )}
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
+              <TableHead className="whitespace-nowrap">Contato</TableHead>
               <TableHead className="whitespace-nowrap">Tam. camiseta</TableHead>
               <TableHead className="whitespace-nowrap">Departamentos</TableHead>
             </TableRow>
@@ -134,6 +135,7 @@ export function ListAllSubscribe() {
                   {format(new Date(sub.createdAt), "dd' de 'MMM'", { locale: ptBR })}
                 </TableCell>
                 <TableCell className="whitespace-nowrap">{sub.name}</TableCell>
+                <TableCell className="whitespace-nowrap">{sub.phone}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.tshirtSize}</TableCell>
                 <TableCell className="whitespace-nowrap space-x-2">
                   {ParseDepartment(sub.department).map(department => (
