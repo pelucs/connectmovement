@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
-import kit from "../assets/kit.jpg";
+import kit from "../assets/kit.png";
 
 import { Dot } from "lucide-react";
 import { Header } from "@/components/header";
@@ -25,11 +24,11 @@ export default function Home() {
         bg-[url(/bg.png)] md:bg-center bg-cover">
           <div className="flex flex-col items-center text-lg md:text-2xl font-bold text-center">
             <span>
-              20, 21 E 22 de Setembro
+              22, 23 E 24 de Novembro
             </span>
 
             <span className="text-sm">
-              Rua Aluísio Cunha Lima, 185 - Catolé - CG
+              Av. Francisco Lopes de Almeida, 571B - Malvinas
             </span>
           </div>
 
@@ -52,7 +51,7 @@ export default function Home() {
             >
               <a 
                 target="_blank"
-                href="https://www.google.com.br/maps/place/ADVEC+Campina+Grande/@-7.2374997,-35.882464,17z/data=!3m1!4b1!4m6!3m5!1s0x7ac1f65cc907857:0xee047d4724115cfd!8m2!3d-7.237505!4d-35.8798891!16s%2Fg%2F11h45lyhc7?entry=ttu" 
+                href="https://www.google.com/maps/place/ADVEC+MALVINAS/@-7.2466024,-35.9190331,17z/data=!3m1!4b1!4m6!3m5!1s0x7aea17b5443c3f3:0x2d3e3fcea92b426a!8m2!3d-7.2466077!4d-35.9164582!16s%2Fg%2F11vl55drps?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D" 
               >
                 Como Chegar
               </a>
@@ -71,7 +70,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="py-10 flex items-center flex-col justify-center gap-10">
+        {/* <div className="py-10 flex items-center flex-col justify-center gap-10">
           <h1 className="text-4xl font-alt text-center">
             Convidados
           </h1>
@@ -108,7 +107,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div id="inscricao" className="py-10 px-5 flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-2">
@@ -120,7 +119,7 @@ export default function Home() {
               <h1>As inscrições terminam</h1>
 
               <span className="text-lg font-bold">
-                7 DE SETEMBRO às 23h59
+                26 de Outubro às 23h59
               </span>
             </div>
           </div>
@@ -138,11 +137,11 @@ export default function Home() {
               </span>
 
               <span className="leading-tight">
-                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">diegosales45@gmail.com</span> (Diego Sales - Nubank);
+                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">14561976493</span>;
               </span>
 
               <span className="leading-tight">
-                • Envie o comprovante de pagamento para o número <span className="underline text-red-500">(83) 9606-4852</span> (Guilherme);
+                • Envie o comprovante de pagamento para o número <span className="underline text-red-500">(83) 98627-6733</span> (Pedro Ivo);
               </span>
             </div>
           </div>

@@ -259,8 +259,8 @@ export function SubscribeForAdmins() {
                 <Input 
                   {...field}
                   value={field.value ?? ''} 
-                  className="" 
-                  placeholder="Insira seu tamanho"
+                  className="uppercase placeholder:capitalize" 
+                  placeholder="Tamanho"
                 />
               </FormControl>
 

@@ -9,7 +9,7 @@ export function Countdown() {
 
   useEffect(() => {
 
-    let countDownDate = new Date('Sep 20, 2024 23:59:59').getTime(); // Corrigido para segundos válidos
+    let countDownDate = new Date('Nov 22, 2024 23:59:59').getTime(); // Corrigido para segundos válidos
 
     const interval = setInterval(() => {
 

@@ -43,8 +43,6 @@ type FormTypes = z.infer<typeof formSchema>;
 
 export function Subscribe() {
 
-  const isAuthenticated = Cookies.get("user_acess");
-
   const [createSubscribe, { loading }] = useCreateSubscribeMutation();
 
   const form = useForm<FormTypes>({
@@ -259,8 +257,8 @@ export function Subscribe() {
                 <Input 
                   {...field}
                   value={field.value ?? ''} 
-                  className="" 
-                  placeholder="Insira seu tamanho"
+                  className="uppercase placeholder:capitalize" 
+                  placeholder="Tamanho"
                 />
               </FormControl>
 

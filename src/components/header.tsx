@@ -18,21 +18,11 @@ export function Header() {
         </Link>
 
         <span className="hidden md:flex">
-          ADVEC Campina Grande
+          ADVEC Malvinas
         </span>
       </div>
 
       <div className="flex items-center gap-5">
-        <nav className="hidden md:flex items-center gap-5">
-          <Link href="">
-            Sobre nós
-          </Link>
-
-          <Link href="">
-            Convidados
-          </Link>
-        </nav>
-
         <Separator orientation="vertical" className="h-5"/>
 
         <Button 

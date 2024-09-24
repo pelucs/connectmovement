@@ -24,7 +24,7 @@ export function Footer() {
         >
           <a 
             target="_blank"
-            href="https://www.instagram.com/connect.campinagrande/" 
+            href="https://www.instagram.com/connect.malvinas/" 
           >
             <InstagramLogoIcon className="size-5"/>
             
@@ -40,17 +40,17 @@ export function Footer() {
         >
           <a 
             target="_blank"
-            href="https://www.instagram.com/advec_campinagrande/" 
+            href="https://www.instagram.com/advec.malvinas/" 
           >
             <InstagramLogoIcon className="size-5"/>
             
-            ADVEC Campina Grande
+            ADVEC Malvinas
           </a>
         </Button>
       </nav>
 
       <h1 className="text-muted-foreground">
-        &copy;2024 - Connect Movement, Campina Grande
+        &copy;2024 - Connect Movement, Malvinas
       </h1>
     </div>
   );
