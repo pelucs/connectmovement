@@ -143,6 +143,10 @@ export default function Home() {
               <span className="leading-tight">
                 • Envie o comprovante de pagamento para o número <span className="underline text-red-500">(83) 98627-6733</span> (Pedro Ivo);
               </span>
+
+              <span className="leading-tight">
+                • Inscrição só é confirmada mediante pagamento. Após o pagamento confirmado você será adicionado ao grupo dos voluntários.
+              </span>
             </div>
           </div>
 
