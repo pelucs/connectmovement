@@ -26,9 +26,15 @@ const atomic = localFont({
   variable: '--font-alt'
 });
 
+const varien = localFont({
+  src: './fonts/varien.otf',
+  display: 'swap',
+  variable: '--font-varien'
+});
+
 export const metadata: Metadata = {
-  title: "Connect Conference 2024",
-  description: "Juventude da ADVEC Malvinas",
+  title: "Connect Conference 2025",
+  description: "Juventude da ADVEC Campina Grande",
 };
 
 export default function RootLayout({
@@ -38,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${helvetica.variable} ${atomic.variable} font-sans text-sm`}>
+      <body className={`${helvetica.variable} ${atomic.variable} ${varien.variable} font-sans text-sm`}>
         {children}
         <Toaster />
       </body>

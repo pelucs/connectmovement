@@ -9,7 +9,7 @@ export function Countdown() {
 
   useEffect(() => {
 
-    let countDownDate = new Date('Nov 22, 2024 23:59:59').getTime(); // Corrigido para segundos válidos
+    let countDownDate = new Date('Sep 27, 2025 23:59:59').getTime();
 
     const interval = setInterval(() => {
 
@@ -18,7 +18,7 @@ export function Countdown() {
   
       if (distance < 0) {
         setExpired(true);
-        clearInterval(interval); // Parar o intervalo quando expirar
+        clearInterval(interval);
         return;
       }
 
@@ -46,11 +46,9 @@ export function Countdown() {
   }
 
   return(
-    <div className="py-2 md:h-16 w-full flex items-center justify-center bg-gradient-to-r from-red-500 to-black">
+    <div className="px-10 py-2 rounded-xl bg-orange-500">
       {!expired && (
         <span className="text-white text-base md:text-xl flex flex-col md:flex-row items-center md:gap-2">
-          Connect Conference 2024 <br className="block md:hidden"/> 
-
           <span className="text-3xl font-bold">
             {date}
           </span>

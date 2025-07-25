@@ -7,7 +7,10 @@ import { Separator } from "./ui/separator";
 
 export function Header() {
   return(
-    <div className="w-full h-14 md:h-20 px-5 md:px-20 flex items-center justify-between border-b">
+    <div 
+      className="w-full max-w-[90%] h-14 md:h-20 px-5 md:px-20 flex items-center z-50
+      justify-between fixed top-5 left-1/2 -translate-x-1/2 bg-purple-500/50 backdrop-blur-sm rounded-2xl"
+    >
       <div className="flex items-center gap-5">
         <Link href="/" className="text-muted-foreground">
           <Image 
@@ -17,8 +20,8 @@ export function Header() {
           />
         </Link>
 
-        <span className="hidden md:flex">
-          ADVEC Malvinas
+        <span className="hidden md:flex text-white">
+          ADVEC Campina Grande
         </span>
       </div>
 
@@ -28,8 +31,7 @@ export function Header() {
         <Button 
           asChild
           size="sm"
-          variant="destructive" 
-          className="font-bold"
+          className="font-bold bg-secondary hover:bg-zinc-400 text-black"
         >
           <a href="#inscricao">
             Ser Voluntário

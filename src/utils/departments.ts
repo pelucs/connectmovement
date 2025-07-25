@@ -9,7 +9,7 @@ export const departments = [
   },
   {
     id: "Creative",
-    label: "Creative",
+    label: "Creative (Apenas para voluntários já do creative)",
   },
   {
     id: "Music",
@@ -31,10 +31,10 @@ export const departments = [
   //   id: "Intercessão",
   //   label: "Intercessão",
   // },
-  // {
-  //   id: "Cantina",
-  //   label: "Cantina",
-  // },
+  {
+    id: "Cantina",
+    label: "Cantina",
+  },
   {
     id: "Start",
     label: "Start",
