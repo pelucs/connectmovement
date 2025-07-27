@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import title from "../../public/title.gif";
 import kit from "../assets/kit.png";
 import elipse from "../assets/elipse.png";
 
@@ -38,7 +39,9 @@ export default function Home() {
             playsInline
           />
 
-          <p className="max-w-2xl text-center text-base md:text-xl leading-tight">
+          {/* <Image src={title} alt="" className="w-full max-w-5xl"/> */}
+
+          <p className="max-w-2xl text-center text-sm md:text-xl leading-tight">
             A Connect Conference 2025 é a Conferência de Jovens da Igreja Assembleia de Deus Vitória em Cristo. 
             Em um ano marcado por crescimento, propósito e colheita, estamos nos preparando para viver dias que
             deixarão raízes profundas e frutos duradouros no nosso chamado.
@@ -129,7 +132,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-5 text-lg">
               <span className="leading-tight">
-                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-red-500">R$85.00</span>;
+                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-orange-500">R$85.00</span>;
               </span>
 
               <span className="leading-tight">
@@ -137,11 +140,11 @@ export default function Home() {
               </span>
 
               <span className="leading-tight">
-                • Chave pix para o pagamento da inscrição <span className="underline text-red-500">123456789</span>;
+                • Chave pix para o pagamento da inscrição <span className="underline text-orange-500">guilhermehp17@gmail.com</span>;
               </span>
 
               <span className="leading-tight">
-                • Envie o comprovante de pagamento para o número <span className="underline text-red-500">83 9606-4852</span> (Guilherme Pereira);
+                • Envie o comprovante de pagamento para o número <a target="_blank" href="https://wa.me/558396064852" className="underline text-orange-500">83 9606-4852</a> (Guilherme Pereira);
               </span>
 
               <span className="leading-tight">

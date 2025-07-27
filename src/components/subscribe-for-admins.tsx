@@ -253,7 +253,13 @@ export function SubscribeForAdmins() {
           name="tshirtSize"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Qual será o tamanho da sua camiseta?</FormLabel>
+              <div>
+                <FormLabel>Qual será o tamanho da sua camiseta?</FormLabel>
+              
+                <FormDescription>
+                  A opção Baby Look não estará disponível
+                </FormDescription>
+              </div>
 
               <FormControl>
                 <Input 
@@ -274,11 +280,14 @@ export function SubscribeForAdmins() {
           name="department"
           render={() => (
             <FormItem>
-              <div>
+              <div className="space-y-2">
                 <FormLabel>Qual/Quais departamento(s) você gostaria de ser voluntário?</FormLabel>
 
-                <FormDescription>
-                  Você pode servir no mínimo um e no máximo dois departamentos.
+                <FormDescription className="text-xs leading-tight p-3 rounded-md border bg-orange-100">
+                  Você pode servir no máximo dois departamentos.
+                  No entando, quem serve no Creative não poderá servir no Teatro ou Dance, 
+                  da mesma forma quem servir no Dance ou Teatro,
+                  não poderá servir no Creative.
                 </FormDescription>
               </div>
 
@@ -327,8 +336,7 @@ export function SubscribeForAdmins() {
           size="lg"
           type="submit"
           disabled={loading}
-          variant="destructive"
-          className="w-full font-bold gap-2 disabled:opacity-50"
+          className="w-full font-bold gap-2 disabled:opacity-50 bg-gradient-to-tr from-orange-400 to-purple-400"
         >
           {loading ? (
             <Loader className="size-4 animate-spin" />

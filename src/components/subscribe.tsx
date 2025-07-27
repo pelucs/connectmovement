@@ -268,7 +268,13 @@ export function Subscribe() {
               name="tshirtSize"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Qual será o tamanho da sua camiseta?</FormLabel>
+                  <div>
+                    <FormLabel>Qual será o tamanho da sua camiseta?</FormLabel>
+                  
+                    <FormDescription>
+                      A opção Baby Look não estará disponível
+                    </FormDescription>
+                  </div>
 
                   <FormControl>
                     <Input 

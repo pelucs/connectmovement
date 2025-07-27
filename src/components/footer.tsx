@@ -17,7 +17,7 @@ export function Footer() {
         <Button
           asChild
           size="sm"
-          className="gap-1 bg-gradient-to-tr from-orange-400 to-purple-400"
+          className="w-48 gap-1 bg-gradient-to-tr from-orange-400 to-purple-400"
         >
           <a 
             target="_blank"
@@ -32,7 +32,7 @@ export function Footer() {
         <Button
           asChild
           size="sm"
-          className="gap-1 bg-gradient-to-tr from-orange-400 to-purple-400"
+          className="w-48 gap-1 bg-gradient-to-tr from-orange-400 to-purple-400"
         >
           <a 
             target="_blank"

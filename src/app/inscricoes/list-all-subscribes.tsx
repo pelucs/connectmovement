@@ -153,7 +153,7 @@ export function ListAllSubscribe() {
           
           <TableFooter className="bg-transparent">
             <TableRow>
-              <TableCell colSpan={4} className="text-center">
+              <TableCell colSpan={6} className="text-center">
                 <div className="flex justify-between items-center">
                   <Button
                     size="sm"
