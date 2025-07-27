@@ -79,7 +79,7 @@ export function ListAllSubscribe() {
   return (
     <div className="space-y-5">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-        <h1 className="text-2xl font-bold">Inscrições CC 2024</h1>
+        <h1 className="text-2xl font-bold">Inscrições CC 2025</h1>
 
         <div className="flex items-center gap-2">
           <Input
