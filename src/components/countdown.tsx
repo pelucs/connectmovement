@@ -9,7 +9,7 @@ export function Countdown() {
 
   useEffect(() => {
 
-    let countDownDate = new Date('Sep 27, 2025 23:59:59').getTime();
+    let countDownDate = new Date('2025-09-27T23:59:59').getTime();
 
     const interval = setInterval(() => {
 

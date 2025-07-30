@@ -49,14 +49,7 @@ export function Footer() {
         &copy;2024 - Connect Movement, Campina Grande
       </h1>
 
-      <video
-        src="/title.webm"
-        className="w-full"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+      <Image width={1024} height={500} className="w-full max-w-5xl" src="/title.gif" alt="Título"/>
     </div>
   );
 }

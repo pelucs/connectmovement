@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className="z-10">
         <div className="w-full p-5 md:px-20 py-40 flex flex-col items-center justify-center gap-8 
-        bg-[url(/bg.png)] md:bg-center bg-cover text-white">
+        bg-[url(/bg.png)] bg-right md:bg-center bg-cover text-white">
           <div className="flex flex-col items-center gap-3 text-lg md:text-2xl font-bold text-center">
             <span>
               27 E 28 de Setembro
@@ -30,14 +30,16 @@ export default function Home() {
             <Countdown/>
           </div>
 
-          <video
+          {/* <video
             src="/title.webm"
             className="w-full max-w-5xl"
             autoPlay
             muted
             loop
             playsInline
-          />
+          /> */}
+
+          <Image width={1024} height={500} className="w-full max-w-5xl" src="/title.gif" alt="Título"/>
 
           {/* <Image src={title} alt="" className="w-full max-w-5xl"/> */}
 
@@ -88,8 +90,9 @@ export default function Home() {
           </div>
 
           <div className="px-5 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {guests.map(guest => (
-              <a 
+            {guests.map((guest, i) => (
+              <a
+                key={i}
                 target="_blank"
                 href={`https://www.instagram.com/${guest.instagram}`}
                 className="border shadow rounded-2xl overflow-hidden"
