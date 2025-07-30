@@ -108,6 +108,8 @@ export function ListAllSubscribe() {
               <TableHead className="whitespace-nowrap">Registro</TableHead>
               <TableHead className="whitespace-nowrap">Nome</TableHead>
               <TableHead className="whitespace-nowrap">Contato</TableHead>
+              <TableHead className="whitespace-nowrap">É membro</TableHead>
+              <TableHead className="whitespace-nowrap">Está no Central?</TableHead>
               <TableHead className="whitespace-nowrap">Tam. camiseta</TableHead>
               <TableHead className="whitespace-nowrap">Departamentos</TableHead>
             </TableRow>
@@ -136,6 +138,8 @@ export function ListAllSubscribe() {
                 </TableCell>
                 <TableCell className="whitespace-nowrap">{sub.name}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.phone}</TableCell>
+                <TableCell className="whitespace-nowrap">{sub.advecMember}</TableCell>
+                <TableCell className="whitespace-nowrap">{sub.isInTheGroup}</TableCell>
                 <TableCell className="whitespace-nowrap">{sub.tshirtSize}</TableCell>
                 <TableCell className="whitespace-nowrap space-x-2">
                   {ParseDepartment(sub.department).map(department => (
@@ -153,7 +157,7 @@ export function ListAllSubscribe() {
           
           <TableFooter className="bg-transparent">
             <TableRow>
-              <TableCell colSpan={6} className="text-center">
+              <TableCell colSpan={8} className="text-center">
                 <div className="flex justify-between items-center">
                   <Button
                     size="sm"
