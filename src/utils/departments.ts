@@ -27,10 +27,10 @@ export const departments = [
     id: "Welcome",
     label: "Welcome",
   },
-  // {
-  //   id: "Intercessão",
-  //   label: "Intercessão",
-  // },
+  {
+    id: "Intercessão",
+    label: "Intercessão",
+  },
   {
     id: "Cantina",
     label: "Cantina",

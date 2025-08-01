@@ -147,7 +147,7 @@ export default function Home() {
               </span>
 
               <span className="leading-tight">
-                • Envie o comprovante de pagamento para o número <a target="_blank" href="https://wa.me/558396064852" className="underline text-orange-500">83 9606-4852</a> (Guilherme Pereira);
+                • Envie o comprovante de pagamento para o número <a target="_blank" href="https://wa.me/5583982001916" className="underline text-orange-500">83 98200-1916</a> (Amanda Praxedes);
               </span>
 
               <span className="leading-tight">
