@@ -348,7 +348,7 @@ export function Subscribe() {
             />
 
             <div>
-              {!isPast(finalDateSubscribe) ? (
+              {isPast(finalDateSubscribe) ? (
                 <div className="w-full h-10 flex items-center justify-center text-white bg-red-500 rounded">
                   Inscrições encerradas!
                 </div>

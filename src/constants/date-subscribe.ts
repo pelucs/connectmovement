@@ -1,1 +1,1 @@
-export const finalDateSubscribe: Date = new Date("2024-11-05T23:59:00");
+export const finalDateSubscribe: Date = new Date("2025-09-06T23:59:00");
