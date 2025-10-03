@@ -34,7 +34,7 @@ const varien = localFont({
 
 export const metadata: Metadata = {
   title: "Connect Conference 2025",
-  description: "Juventude da ADVEC Campina Grande",
+  description: "Juventude da ADVEC Malvinas",
 };
 
 export default function RootLayout({
