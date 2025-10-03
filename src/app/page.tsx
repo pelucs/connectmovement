@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import title from "../../public/title.gif";
 import kit from "../assets/kit.png";
 import elipse from "../assets/elipse.png";
 
@@ -24,7 +23,7 @@ export default function Home() {
         bg-[url(/bg.png)] bg-right md:bg-center bg-cover text-white">
           <div className="flex flex-col items-center gap-3 text-lg md:text-2xl font-bold text-center">
             <span>
-              27 E 28 de Setembro
+              22 E 23 de Novembro
             </span>
 
             <Countdown/>
@@ -58,7 +57,7 @@ export default function Home() {
             >
               <a 
                 target="_blank"
-                href="https://maps.app.goo.gl/xDWBCY1KcHmLE9Fv9" 
+                href="https://www.google.com.br/maps/place/ADVEC+MALVINAS/@-7.2466024,-35.9190331,17z/data=!3m1!4b1!4m6!3m5!1s0x7aea17b5443c3f3:0x2d3e3fcea92b426a!8m2!3d-7.2466077!4d-35.9164582!16s%2Fg%2F11vl55drps?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
               >
                 Como Chegar
               </a>
@@ -89,21 +88,12 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="px-5 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {guests.map((guest, i) => (
-              <a
-                key={i}
-                target="_blank"
-                href={`https://www.instagram.com/${guest.instagram}`}
-                className="border shadow rounded-2xl overflow-hidden"
-              >
-                <Image 
-                  src={guest.image} 
-                  alt={guest.instagram}
-                  className="md:w-[450px]"
-                />
-              </a>
-            ))}
+          <div className="px-5">
+            <Image 
+              src={kit} 
+              alt=""
+              className="md:w-[550px] rounded-2xl"
+            />
           </div>
         </div>
 
@@ -125,7 +115,7 @@ export default function Home() {
               <h1>As inscrições terminam</h1>
 
               <span className="text-lg font-bold">
-                07 de Setembro às 23h59
+                05 de Novembro às 23h59
               </span>
             </div>
           </div>
@@ -135,23 +125,23 @@ export default function Home() {
 
             <div className="flex flex-col gap-5 text-lg">
               <span className="leading-tight">
-                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-orange-500">R$85.00</span>;
+                • O valor da inscrição para tornar-se voluntário e adquirir o kit volunteer é de <span className="underline text-orange-500">R$R$75.00</span>;
               </span>
 
               <span className="leading-tight">
-                • Os métodos de pagamento são; Pix, Crédito ou Débito;
+                • Os métodos de pagamento são: Pix, Crédito ou Débito;
               </span>
 
               <span className="leading-tight">
-                • Chave pix para o pagamento da inscrição <span className="underline text-orange-500">guilhermehp17@gmail.com</span>;
+                • Chave pix para o pagamento da inscrição <span className="underline text-orange-500">708.373.654.57 (Evellyn Tavares Agra - PIC PAY)</span>;
               </span>
 
               <span className="leading-tight">
-                • Envie o comprovante de pagamento para o número <a target="_blank" href="https://wa.me/5583982001916" className="underline text-orange-500">83 98200-1916</a> (Amanda Praxedes);
+                • Envie o comprovante de pagamento para o número <a target="_blank" href="https://wa.me/5583994146500" className="underline text-orange-500">83 99414-6500</a> (EVELLYN);
               </span>
 
               <span className="leading-tight">
-                • Inscrição só é confirmada mediante pagamento. Após o pagamento confirmado você será adicionado ao grupo dos voluntários.
+                • Inscrição só é confirmada mediante pagamento. Após o pagamento confirmado você será adicionado ao grupo dos voluntários.
               </span>
             </div>
           </div>

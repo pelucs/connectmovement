@@ -21,7 +21,7 @@ export function Header() {
         </Link>
 
         <span className="hidden md:flex text-white">
-          ADVEC Campina Grande
+          ADVEC Malvinas
         </span>
       </div>
 
